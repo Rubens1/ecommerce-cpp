@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ECommerce.Models.City>
+
+@{
+    ViewBag.Title = "Cidade";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar uma Nova Cidade", "Create", new { }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.DepartmentId }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalhes", "Details", new { id = item.DepartmentId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Excluir", "Delete", new { id = item.DepartmentId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
